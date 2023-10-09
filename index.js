@@ -1,5 +1,16 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  const numSet = new Set();
+
+  for (const num of array) {
+    const diff = target - num;
+    if (numSet.has(diff)) {
+      return true;
+    }
+    numSet.add(num);
+  }
+
+  return false;
 }
 
 /* 
@@ -8,6 +19,17 @@ function hasTargetSum(array, target) {
 
 /* 
   Add your pseudocode here
+
+  Function hasTargetSum(array, target):
+     Initialize an empty set called `numSet`.
+     Iterate through each element `num` in the `array`:
+       Calculate the difference `diff` between the `target` and `num`.
+       If `diff` is in the `numSet`, return `true` as we found a pair that sums to the `target`.
+       Otherwise, add `num` to the `numSet`.
+  If the loop completes without finding a pair, return `false` as there's no such pair.
+
+Time Complexity: O(n)
+Space Complexity: O(n)
 */
 
 /*
